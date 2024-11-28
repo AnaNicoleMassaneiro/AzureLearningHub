@@ -1,0 +1,17 @@
+#como criar um novo arquivo html e publica-lo no cloud shell
+
+mkdir AzureLearningHub
+
+cd AzureLearningHub
+
+git clone ...
+
+para criar o app web 
+
+az webapp up --resource-group $resourceGroup --name $appName --html --debug
+
+
+para atualizar e reimplantar
+
+az webapp up -g $resourceGroup -n $appName --html 
+
