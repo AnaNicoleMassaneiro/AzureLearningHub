@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resumo: Serviço de Aplicativo do Azure</title>
+</head>
+<body>
+    <header>
+        <h1>Resumo: Serviço de Aplicativo do Azure</h1>
+    </header>
+    <section>
+        <h2>Explorar o Serviço de Aplicativo do Azure</h2>
+        <h3>O que é o Serviço de Aplicativo?</h3>
+        <ul>
+            <li><strong>Serviço gerenciado</strong> para hospedar aplicativos web, APIs, funções e backends móveis.</li>
+            <li>Suporte para várias linguagens: C#, Java, Python, Node.js, PHP e mais.</li>
+            <li><strong>Recursos principais:</strong>
+                <ul>
+                    <li>Escalabilidade automática.</li>
+                    <li>Hospedagem globalmente distribuída.</li>
+                    <li>Suporte integrado para autenticação e autorização.</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3>Planos do Serviço de Aplicativo</h3>
+        <ul>
+            <li><strong>Camadas disponíveis:</strong>
+                <ul>
+                    <li><strong>Gratuita/Compartilhada:</strong> Para teste e desenvolvimento.</li>
+                    <li><strong>Básica:</strong> Aplicativos de produção pequenos.</li>
+                    <li><strong>Standard:</strong> Mais capacidade de escalabilidade.</li>
+                    <li><strong>Premium:</strong> Performance avançada.</li>
+                    <li><strong>Isolada:</strong> Ambiente dedicado em rede virtual.</li>
+                </ul>
+            </li>
+            <li>Escolha o plano com base em requisitos de desempenho, escalabilidade e conectividade.</li>
+        </ul>
+
+        <h3>Implantação no Serviço de Aplicativo</h3>
+        <ul>
+            <li><strong>Métodos:</strong>
+                <ul>
+                    <li><strong>Azure CLI:</strong> <code>az webapp up</code> para subir um app rapidamente.</li>
+                    <li>GitHub Actions ou Azure DevOps: Automação de CI/CD.</li>
+                    <li>FTP e Zip Deploy: Métodos manuais.</li>
+                </ul>
+            </li>
+            <li><strong>Comandos úteis:</strong>
+                <ul>
+                    <li>Criar um app: <code>az webapp create</code></li>
+                    <li>Configurar plano: <code>az appservice plan create</code></li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3>Autenticação e Autorização</h3>
+        <ul>
+            <li><strong>Autenticação integrada:</strong> Suporte para provedores como Azure AD, Google, Facebook e Twitter.</li>
+            <li>Configurável sem alterações no código.</li>
+            <li><strong>Autorização de nível de aplicação:</strong>
+                <ul>
+                    <li>Restrições por IP.</li>
+                    <li>Regras baseadas em tráfego.</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3>Recursos de Rede</h3>
+        <ul>
+            <li><strong>Rede Virtual:</strong> Acesso a recursos internos.</li>
+            <li><strong>Hybrid Connections:</strong> Conectar-se a serviços locais.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Definir Configurações do Aplicativo Web</h2>
+        <h3>Configurações do Aplicativo</h3>
+        <ul>
+            <li>Variáveis de ambiente para gerenciar configurações de produção/teste.</li>
+            <li>Configurar com <code>az webapp config appsettings set</code>.</li>
+        </ul>
+
+        <h3>Configurações Gerais</h3>
+        <ul>
+            <li>Idioma e pilha de execução: .NET, Java, PHP etc.</li>
+            <li>Configuração de HTTPS obrigatório.</li>
+        </ul>
+
+        <h3>Mapeamento de Caminhos</h3>
+        <ul>
+            <li>Aplicativos virtuais: Dividir diretórios para diferentes aplicativos.</li>
+        </ul>
+
+        <h3>Log de Diagnóstico</h3>
+        <ul>
+            <li>Logs de eventos, solicitações HTTP e diagnósticos de falhas.</li>
+            <li>Habilitar logs com <code>az webapp log config</code>.</li>
+        </ul>
+
+        <h3>Certificados de Segurança</h3>
+        <ul>
+            <li><strong>SSL/TLS</strong> para criptografia.</li>
+            <li>Importar certificados com suporte para HTTPS.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Escalar Aplicativos no Serviço de Aplicativo</h2>
+        <h3>Dimensionamento Horizontal</h3>
+        <ul>
+            <li>Adiciona mais instâncias do aplicativo.</li>
+            <li>Configurado com escalabilidade automática:
+                <ul>
+                    <li>Baseado em CPU, memória, tráfego HTTP.</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3>Dimensionamento Vertical</h3>
+        <ul>
+            <li>Atualiza o plano para mais recursos (ex.: mudar de Básico para Standard).</li>
+        </ul>
+
+        <h3>Práticas Recomendadas</h3>
+        <ul>
+            <li>Use o escalonamento automático para economizar custos.</li>
+            <li>Monitore o desempenho com Azure Monitor.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Explorar os Slots de Implantação</h2>
+        <h3>O que são Slots de Implantação?</h3>
+        <ul>
+            <li>Ambientes separados dentro de um mesmo Serviço de Aplicativo.</li>
+            <li>Tipos:
+                <ul>
+                    <li><strong>Produção:</strong> Slot principal.</li>
+                    <li><strong>Preparo (Staging):</strong> Testes antes de enviar para produção.</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3>Troca de Slots</h3>
+        <ul>
+            <li>Realizar a troca de ambientes sem causar downtime.</li>
+            <li><strong>Configuração:</strong> Configurações específicas podem ser vinculadas a slots ou globais.</li>
+        </ul>
+
+        <h3>Roteamento de Tráfego</h3>
+        <ul>
+            <li>Dividir o tráfego entre slots para validação gradual.</li>
+        </ul>
+    </section>
+</body>
+</html>
